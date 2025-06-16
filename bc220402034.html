@@ -1,0 +1,149 @@
+<!-- 
+    Student ID: bc220402034
+    Student Name: Aamir Khan
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SmartWatch X - Product Page</title>
+    <style>
+        /* Basic page styling */
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+            background-color: white;
+            transition: background-color 0.5s ease;
+            /* Smooth theme transition */
+        }
+
+        /* Title color styling */
+
+        h1 {
+            color: #333;
+        }
+
+        /* Product image styling with transition for zoom */
+
+        img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Zoom effect on image hover */
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Styling for all buttons */
+
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Styling for theme dropdown and Apply button */
+
+        select,
+        button {
+            font-size: 16px;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        /* Message area style below interaction */
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Product title heading -->
+
+    <h1>SmartWatch X</h1>
+
+    <!-- Product image with onmouseover and onmouseout events -->
+
+    <img id="productImage" src="https://zerolifestyle.co/cdn/shop/files/Luna-_1_6.webp?v=1734558268&width=700"
+        alt="SmartWatch X" onmouseover="changeImage()" onmouseout="revertImage()">
+
+    <!-- Brief description about the product -->
+
+    <p>Experience the future on your wrist. Stay connected, stay stylish with SmartWatch X.</p>
+
+    <!-- Button to simulate buying action -->
+
+    <br>
+    <button class="btn" onclick="buyNow()">Buy Now</button>
+
+    <!-- Theme changing options -->
+
+    <br><br>
+    <label for="theme">Change Theme:</label>
+    <select id="theme">
+        <option value="white">Light</option>
+        <option value="#1a1a2e">Dark</option>
+        <option value="#007BFF">Blue</option>
+    </select>
+    <button onclick="applyTheme()">Apply Theme</button>
+
+    <!-- Area where interaction messages will be displayed -->
+
+    <div id="message"></div>
+
+    <script>
+
+        /* Function runs when Buy Now button is clicked */
+
+        function buyNow() {
+            alert("Thank you for buying SmartWatch X!");
+            document.getElementById("message").textContent = "You clicked Buy Now, Thank You.";
+        }
+
+        /* Function to apply selected theme color to page background */
+
+        function applyTheme() {
+            const selectedTheme = document.getElementById("theme").value;
+            document.body.style.backgroundColor = selectedTheme;
+
+            let themeText = "";
+
+            if (selectedTheme === "white") themeText = "Light Theme applied.";
+            else if (selectedTheme === "#1a1a2e") themeText = "Dark Theme applied.";
+            else if (selectedTheme === "#007BFF") themeText = "Blue Theme applied.";
+
+            document.getElementById("message").textContent = themeText;
+        }
+
+        /* Function to change image on mouse hover  */
+
+        function changeImage() {
+            document.getElementById("productImage").src =
+                "https://zerolifestyle.co/cdn/shop/files/Jewel_2_2288ba30-27d5-4139-996691b4c0f537ae.webp?v=1744983680&width=700";
+        }
+
+        /* Function to revert image when mouse leaves */
+
+        function revertImage() {
+            document.getElementById("productImage").src =
+                "https://zerolifestyle.co/cdn/shop/files/Luna-_1_6.webp?v=1734558268&width=700";
+        }
+
+    </script>
+
+</body>
+
+</html>
